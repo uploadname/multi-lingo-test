@@ -347,28 +347,25 @@ const ExamTest = () => {
               
               <div className="space-y-3">
                 {(translation?.options || currentQuestion?.options).map((option, index) => (
-                  <Button
+                  <div
                     key={index}
-                    variant={
+                    className={`w-full text-left justify-start h-auto p-4 whitespace-normal border rounded-md cursor-default ${
                       showFeedback 
                         ? index === currentQuestion.correctAnswer 
-                          ? "default"
+                          ? "bg-primary text-primary-foreground border-primary"
                           : selectedOption === index 
-                            ? "destructive" 
-                            : "outline"
+                            ? "bg-destructive text-destructive-foreground border-destructive" 
+                            : "bg-background border-border"
                         : selectedOption === index 
-                          ? "default" 
-                          : "outline"
-                    }
-                    className="w-full text-left justify-start h-auto p-4 whitespace-normal"
-                    onClick={() => handleAnswerSelect(index)}
-                    disabled={showFeedback}
+                          ? "bg-primary text-primary-foreground border-primary" 
+                          : "bg-background border-border"
+                    }`}
                   >
                     <span className="mr-3 font-semibold">
                       {String.fromCharCode(65 + index)}.
                     </span>
                     {option}
-                  </Button>
+                  </div>
                 ))}
               </div>
             </Card>
