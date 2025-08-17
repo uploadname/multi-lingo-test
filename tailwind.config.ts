@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +52,25 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				correct: {
+					DEFAULT: 'hsl(var(--correct))',
+					foreground: 'hsl(var(--correct-foreground))',
+					bg: 'hsl(var(--correct-bg))'
+				},
+				incorrect: {
+					DEFAULT: 'hsl(var(--incorrect))',
+					foreground: 'hsl(var(--incorrect-foreground))',
+					bg: 'hsl(var(--incorrect-bg))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))',
+					bg: 'hsl(var(--warning-bg))'
+				},
+				exam: {
+					panel: 'hsl(var(--exam-panel))',
+					border: 'hsl(var(--exam-border))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
