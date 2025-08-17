@@ -39,11 +39,18 @@ const ExamTest = () => {
   const language = languages.find(lang => lang.code === languageCode);
   const translation = questionTranslations[languageCode]?.[currentQuestion?.id];
 
-  // Timer effect
+  // Timer effect - 45 minute limit
   useEffect(() => {
     if (!isPaused && !isExamComplete) {
       const timer = setInterval(() => {
-        setTimeElapsed(prev => prev + 1);
+        setTimeElapsed(prev => {
+          // Auto-complete exam after 45 minutes (2700 seconds)
+          if (prev >= 2699) {
+            setIsExamComplete(true);
+            return 2700;
+          }
+          return prev + 1;
+        });
       }, 1000);
       return () => clearInterval(timer);
     }
@@ -94,9 +101,20 @@ const ExamTest = () => {
   };
 
   const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
+    const totalMinutes = Math.floor(seconds / 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
     const secs = seconds % 60;
+    
+    if (hours > 0) {
+      return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
     return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const getTimeRemaining = () => {
+    const remaining = Math.max(0, 2700 - timeElapsed); // 45 minutes = 2700 seconds
+    return formatTime(remaining);
   };
 
   const getScore = () => {
@@ -224,7 +242,7 @@ const ExamTest = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
-                <span>{formatTime(timeElapsed)}</span>
+                <span>Time Remaining: {getTimeRemaining()}</span>
               </div>
               <Button
                 variant="outline"
@@ -363,28 +381,55 @@ const ExamTest = () => {
                 ? 'bg-correct-bg border-correct' 
                 : 'bg-incorrect-bg border-incorrect'
             }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  {selectedOption === currentQuestion.correctAnswer ? (
-                    <CheckCircle className="w-6 h-6 text-correct" />
-                  ) : (
-                    <XCircle className="w-6 h-6 text-incorrect" />
-                  )}
-                  <div>
-                    <div className="font-semibold">
-                      {selectedOption === currentQuestion.correctAnswer ? 'Correct!' : 'Incorrect'}
-                    </div>
-                    {selectedOption !== currentQuestion.correctAnswer && (
-                      <div className="text-sm text-muted-foreground">
-                        The correct answer was {String.fromCharCode(65 + currentQuestion.correctAnswer)}
-                      </div>
+              <div className="flex flex-col space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    {selectedOption === currentQuestion.correctAnswer ? (
+                      <CheckCircle className="w-6 h-6 text-correct" />
+                    ) : (
+                      <XCircle className="w-6 h-6 text-incorrect" />
                     )}
+                    <div>
+                      <div className="font-semibold">
+                        {selectedOption === currentQuestion.correctAnswer ? 'Correct!' : 'Incorrect'}
+                      </div>
+                      {selectedOption !== currentQuestion.correctAnswer && (
+                        <div className="text-sm text-muted-foreground">
+                          The correct answer was {String.fromCharCode(65 + currentQuestion.correctAnswer)}
+                        </div>
+                      )}
+                    </div>
                   </div>
+                  
+                  <Button onClick={handleNextQuestion}>
+                    {currentQuestionIndex < randomizedQuestions.length - 1 ? 'Next Question' : 'Finish Exam'}
+                  </Button>
                 </div>
                 
-                <Button onClick={handleNextQuestion}>
-                  {currentQuestionIndex < randomizedQuestions.length - 1 ? 'Next Question' : 'Finish Exam'}
-                </Button>
+                {/* Explanation */}
+                <div className="pt-4 border-t">
+                  <h4 className="font-semibold mb-2">Explanation:</h4>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* English Explanation */}
+                    <div>
+                      <Badge variant="secondary" className="mb-2">English</Badge>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {currentQuestion.explanation}
+                      </p>
+                    </div>
+                    
+                    {/* Translated Explanation */}
+                    <div>
+                      <Badge variant="secondary" className="mb-2">
+                        <span className="mr-2">{language?.flag}</span>
+                        {language?.name}
+                      </Badge>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {translation?.explanation || currentQuestion.explanation}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Card>
           )}

@@ -4,12 +4,14 @@ export interface Question {
   options: string[];
   correctAnswer: number;
   category: string;
+  explanation: string;
 }
 
 export interface Translation {
   [key: string]: {
     question: string;
     options: string[];
+    explanation: string;
   };
 }
 
@@ -25,7 +27,8 @@ export const examQuestions: Question[] = [
       "England and Wales"
     ],
     correctAnswer: 1,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "The official name is 'United Kingdom of Great Britain and Northern Ireland', which includes England, Scotland, Wales, and Northern Ireland."
   },
   {
     id: 2,
@@ -37,7 +40,8 @@ export const examQuestions: Question[] = [
       "Shamrock"
     ],
     correctAnswer: 2,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "The rose is the national flower of England. The thistle represents Scotland, the daffodil represents Wales, and the shamrock represents Ireland."
   },
   {
     id: 3,
@@ -49,7 +53,8 @@ export const examQuestions: Question[] = [
       "21"
     ],
     correctAnswer: 2,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "You must be 18 years old to vote in UK general elections, although you can register to vote when you are 16 or 17."
   },
   {
     id: 4,
@@ -61,7 +66,8 @@ export const examQuestions: Question[] = [
       "Northern Ireland"
     ],
     correctAnswer: 2,
-    category: "Geography"
+    category: "Geography",
+    explanation: "The Isle of Man is a Crown Dependency, not part of the UK but under the sovereignty of the British Crown. Wales, Scotland, and Northern Ireland are constituent countries of the UK."
   },
   {
     id: 5,
@@ -73,7 +79,8 @@ export const examQuestions: Question[] = [
       "25"
     ],
     correctAnswer: 1,
-    category: "Law and Order"
+    category: "Law and Order",
+    explanation: "You must be at least 18 years old to serve on a jury in the UK, and you must be registered to vote."
   },
   {
     id: 6,
@@ -85,7 +92,8 @@ export const examQuestions: Question[] = [
       "Rugby"
     ],
     correctAnswer: 2,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "Wimbledon is the world's oldest tennis tournament and is widely considered the most prestigious. It takes place in Wimbledon, London."
   },
   {
     id: 7,
@@ -97,7 +105,8 @@ export const examQuestions: Question[] = [
       "Franc"
     ],
     correctAnswer: 2,
-    category: "Economy"
+    category: "Economy",
+    explanation: "The UK uses Pound Sterling (£) as its currency. The UK chose not to adopt the Euro when it was introduced."
   },
   {
     id: 8,
@@ -109,7 +118,8 @@ export const examQuestions: Question[] = [
       "Speaker of the House"
     ],
     correctAnswer: 2,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "The monarch (currently King Charles III) is the head of state, while the Prime Minister is the head of government."
   },
   {
     id: 9,
@@ -121,7 +131,8 @@ export const examQuestions: Question[] = [
       "National Highway System"
     ],
     correctAnswer: 0,
-    category: "Public Services"
+    category: "Public Services",
+    explanation: "The NHS (National Health Service) provides free healthcare to UK residents, funded through taxation."
   },
   {
     id: 10,
@@ -133,7 +144,8 @@ export const examQuestions: Question[] = [
       "Edinburgh"
     ],
     correctAnswer: 3,
-    category: "Geography"
+    category: "Geography",
+    explanation: "Edinburgh is the capital city of Scotland and home to the Scottish Parliament. Glasgow is the largest city in Scotland."
   },
   {
     id: 11,
@@ -145,7 +157,8 @@ export const examQuestions: Question[] = [
       "Easter"
     ],
     correctAnswer: 1,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "Guy Fawkes Night (Bonfire Night) commemorates the failure of the Gunpowder Plot of 1605, when Guy Fawkes tried to blow up Parliament."
   },
   {
     id: 12,
@@ -157,7 +170,8 @@ export const examQuestions: Question[] = [
       "700"
     ],
     correctAnswer: 2,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "The House of Commons has 650 Members of Parliament (MPs), each representing a constituency across the UK."
   },
   {
     id: 13,
@@ -169,7 +183,8 @@ export const examQuestions: Question[] = [
       "Irish"
     ],
     correctAnswer: 1,
-    category: "Geography"
+    category: "Geography",
+    explanation: "English is spoken by the majority of people in Wales, although Welsh is also an official language and is taught in schools."
   },
   {
     id: 14,
@@ -181,7 +196,8 @@ export const examQuestions: Question[] = [
       "Land of Hope and Glory"
     ],
     correctAnswer: 1,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "The UK's national anthem is 'God Save the King' (or 'God Save the Queen' when the monarch is female)."
   },
   {
     id: 15,
@@ -193,7 +209,8 @@ export const examQuestions: Question[] = [
       "13"
     ],
     correctAnswer: 1,
-    category: "Education"
+    category: "Education",
+    explanation: "Children in the UK typically start secondary school at age 11, after completing primary school education."
   },
   {
     id: 16,
@@ -205,7 +222,8 @@ export const examQuestions: Question[] = [
       "Galileo Galilei"
     ],
     correctAnswer: 1,
-    category: "History"
+    category: "History",
+    explanation: "Sir Isaac Newton was a famous British scientist who formulated the laws of motion and universal gravitation."
   },
   {
     id: 17,
@@ -217,7 +235,8 @@ export const examQuestions: Question[] = [
       "River Mersey"
     ],
     correctAnswer: 1,
-    category: "Geography"
+    category: "Geography",
+    explanation: "The River Severn is the longest river in the UK at 220 miles (354 km), flowing through Wales and England."
   },
   {
     id: 18,
@@ -229,7 +248,8 @@ export const examQuestions: Question[] = [
       "Columbus Day"
     ],
     correctAnswer: 2,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "Boxing Day (26th December) is a public holiday in the UK. The others are American holidays."
   },
   {
     id: 19,
@@ -241,7 +261,8 @@ export const examQuestions: Question[] = [
       "George Orwell"
     ],
     correctAnswer: 1,
-    category: "Literature"
+    category: "Literature",
+    explanation: "William Shakespeare wrote 'Romeo and Juliet', one of his most famous plays, in the late 16th century."
   },
   {
     id: 20,
@@ -253,7 +274,8 @@ export const examQuestions: Question[] = [
       "112"
     ],
     correctAnswer: 0,
-    category: "Public Services"
+    category: "Public Services",
+    explanation: "999 is the main emergency number in the UK for police, fire, and ambulance services. 112 also works but 999 is more commonly known."
   },
   {
     id: 21,
@@ -265,7 +287,8 @@ export const examQuestions: Question[] = [
       "Neither house"
     ],
     correctAnswer: 1,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "The House of Commons is elected by the public. The House of Lords consists of appointed members and hereditary peers."
   },
   {
     id: 22,
@@ -277,7 +300,8 @@ export const examQuestions: Question[] = [
       "Helvellyn"
     ],
     correctAnswer: 2,
-    category: "Geography"
+    category: "Geography",
+    explanation: "Ben Nevis in Scotland is the highest mountain in the UK at 1,345 meters (4,413 feet)."
   },
   {
     id: 23,
@@ -289,7 +313,8 @@ export const examQuestions: Question[] = [
       "Sushi"
     ],
     correctAnswer: 1,
-    category: "Culture and Traditions"
+    category: "Culture and Traditions",
+    explanation: "Fish and chips is a traditional British dish that became popular in the 19th century and remains a staple of British cuisine."
   },
   {
     id: 24,
@@ -301,7 +326,8 @@ export const examQuestions: Question[] = [
       "Music Producer"
     ],
     correctAnswer: 1,
-    category: "Government and Politics"
+    category: "Government and Politics",
+    explanation: "MP stands for Member of Parliament - an elected representative in the House of Commons."
   }
 ];
 
@@ -315,7 +341,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "Zjednoczone Królestwo Wielkiej Brytanii i Irlandii Północnej",
         "Wyspy Brytyjskie", 
         "Anglia i Walia"
-      ]
+      ],
+      explanation: "Oficjalna nazwa to 'Zjednoczone Królestwo Wielkiej Brytanii i Irlandii Północnej', które obejmuje Anglię, Szkocję, Walię i Irlandię Północną."
     },
     "2": {
       question: "Który kwiat jest kojarzony z Anglią?",
@@ -324,7 +351,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "Żonkil",
         "Róża",
         "Koniczyna"
-      ]
+      ],
+      explanation: "Róża jest narodowym kwiatem Anglii. Oset reprezentuje Szkocję, żonkil Walię, a koniczyna Irlandię."
     },
     "3": {
       question: "W jakim wieku można głosować w wyborach powszechnych?",
@@ -333,7 +361,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "17", 
         "18",
         "21"
-      ]
+      ],
+      explanation: "Musisz mieć ukończone 18 lat, aby głosować w wyborach powszechnych w UK, chociaż możesz zarejestrować się do głosowania w wieku 16 lub 17 lat."
     }
     // Add more translations as needed...
   },
@@ -345,7 +374,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "Reino Unido de Gran Bretaña e Irlanda del Norte",
         "Islas Británicas",
         "Inglaterra y Gales"
-      ]
+      ],
+      explanation: "El nombre oficial es 'Reino Unido de Gran Bretaña e Irlanda del Norte', que incluye Inglaterra, Escocia, Gales e Irlanda del Norte."
     },
     "2": {
       question: "¿Qué flor está asociada con Inglaterra?",
@@ -354,7 +384,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "Narciso",
         "Rosa", 
         "Trébol"
-      ]
+      ],
+      explanation: "La rosa es la flor nacional de Inglaterra. El cardo representa Escocia, el narciso Gales, y el trébol Irlanda."
     },
     "3": {
       question: "¿A qué edad puedes votar en unas elecciones generales?",
@@ -363,7 +394,8 @@ export const questionTranslations: { [key: string]: Translation } = {
         "17",
         "18",
         "21"
-      ]
+      ],
+      explanation: "Debes tener 18 años para votar en las elecciones generales del Reino Unido, aunque puedes registrarte para votar a los 16 o 17 años."
     }
     // Add more translations as needed...
   }
